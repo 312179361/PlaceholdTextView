@@ -18,11 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-
-    
     PlaceholdTextView *placeTextView = [[PlaceholdTextView alloc] initWithFrame:CGRectMake(50, 300, 200, 100)];
     //指定placehold
-    placeTextView.textViewPlacehold = @"请输入一些内容";
+    placeTextView.textViewPlacehold = @"请输入一些内容(代码)";
+    placeTextView.isAddDelegate = YES;
     [self.view addSubview:placeTextView];
 
 }

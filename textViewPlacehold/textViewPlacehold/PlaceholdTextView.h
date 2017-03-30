@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface PlaceholdTextView : UITextView
-//用于placehold的指定
+
 @property (nonatomic,strong)IBInspectable NSString *textViewPlacehold;
+@property (nonatomic,assign)IBInspectable BOOL isAddDelegate;
+@property (nonatomic,strong)UILabel *holdLabel;
+
+
 @end

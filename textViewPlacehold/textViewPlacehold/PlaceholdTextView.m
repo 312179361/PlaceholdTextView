@@ -8,7 +8,6 @@
 
 #import "PlaceholdTextView.h"
 @interface PlaceholdTextView ()<UITextViewDelegate>
-@property (nonatomic,strong)UILabel *holdLabel;
 
 @end
 @implementation PlaceholdTextView
@@ -33,10 +32,10 @@
 }
 //添加显示Placehold的UILabel
 - (void)addPlacehold {
-    //设置代理
-    self.delegate = self;
+
+    
     //创建显示Placehold的UILabel
-    self.holdLabel = [[UILabel alloc]initWithFrame:CGRectMake(4, 0, 150, 30)];
+    self.holdLabel = [[UILabel alloc]initWithFrame:CGRectMake(4, 0, 200, 30)];
     self.holdLabel.font = self.font;
     self.holdLabel.textColor = [UIColor colorWithRed:200/255.0 green:200/255.0 blue:205/255.0 alpha:1];
     [self addSubview:self.holdLabel];
@@ -61,9 +60,12 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-//    self.holdLabel.text = self.textViewPlacehold;
-    //首次进入，加载一次代理方法，
+    self.holdLabel.text = self.textViewPlacehold;
     [self textViewDidChange:self];
+    if (self.isAddDelegate == YES) {
+        self.delegate = self;
+    }
+
 }
 
 
